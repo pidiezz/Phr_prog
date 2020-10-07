@@ -8,6 +8,7 @@ namespace Phr_prog
 {
     static class Program
     {
+        public static PHRprojEntities phrDb = new PHRprojEntities();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,7 @@ namespace Phr_prog
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormAutorization());
         }
     }
 }

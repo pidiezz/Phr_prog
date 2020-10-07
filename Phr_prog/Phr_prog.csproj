@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +55,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ClientSet.cs">
+      <DependentUpon>ModelPHRprog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drugs.cs">
+      <DependentUpon>ModelPHRprog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormAutorization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAutorization.Designer.cs">
+      <DependentUpon>FormAutorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClient.Designer.cs">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPhr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhr.Designer.cs">
+      <DependentUpon>FormPhr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReg.Designer.cs">
+      <DependentUpon>FormReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPHRprog.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPHRprog.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPHRprog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPHRprog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPHRprog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPHRprog.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PhrSet.cs">
+      <DependentUpon>ModelPHRprog.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users.cs">
+      <DependentUpon>ModelPHRprog.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAutorization.resx">
+      <DependentUpon>FormAutorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClient.resx">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhr.resx">
+      <DependentUpon>FormPhr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReg.resx">
+      <DependentUpon>FormReg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +129,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="ModelPHRprog.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPHRprog.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelPHRprog.edmx.diagram">
+      <DependentUpon>ModelPHRprog.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +149,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelPHRprog.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPHRprog.edmx</DependentUpon>
+      <LastGenOutput>ModelPHRprog.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPHRprog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPHRprog.edmx</DependentUpon>
+      <LastGenOutput>ModelPHRprog.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
